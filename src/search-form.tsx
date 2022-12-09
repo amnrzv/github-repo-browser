@@ -14,9 +14,10 @@ export const SearchForm = ({
   return (
     <form onSubmit={onSubmitHandler}>
       <label>
-        Language:
+        Programming language:
         <input
           type="text"
+          placeholder="Enter name of programming language. Eg. Typescript"
           value={searchTerm}
           onChange={(e) => onChangeSearchTerm(e.target.value)}
         />
