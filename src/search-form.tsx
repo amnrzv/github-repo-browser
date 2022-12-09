@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 interface SearchFormProps {
   searchTerm: string;
@@ -11,8 +11,16 @@ export const SearchForm = ({
   onSubmitHandler,
   onChangeSearchTerm,
 }: SearchFormProps) => {
+  const onFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (onSubmitHandler) {
+      onSubmitHandler();
+    }
+  };
+
   return (
-    <form onSubmit={onSubmitHandler}>
+    <form onSubmit={onFormSubmit}>
       <label>
         Programming language:
         <input
